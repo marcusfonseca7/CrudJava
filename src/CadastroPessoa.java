@@ -5,9 +5,14 @@ public class CadastroPessoa {
 
     Scanner sc = new Scanner(System.in);
     ArrayList<Pessoa> listaPessoa = new ArrayList<>();
+    ArrayList<Programador> listaProgramador = new ArrayList<>();
+    ArrayList<Cibersecurity> listaCiber = new ArrayList<>();
     int contador;
 
+
     public void adicionarPessoa() {
+        int opcaoPessoa;
+
         System.out.println("Digite seu nome: ");
         String nome = sc.nextLine();
 
@@ -18,29 +23,63 @@ public class CadastroPessoa {
         System.out.println("Digite seu telefone: ");
         String telefone = sc.nextLine();
 
-        Pessoa pessoa = new Pessoa(nome, idade, telefone);
+        System.out.println("╔════════════════════════════╗\n" +
+                           "║          PROFISSÃO         ║\n" +
+                           "╠════════════════════════════╣\n" +
+                           "║   1- Programador           ║\n" +
+                           "║   2- Cibersecurity         ║\n" +
+                           "╚════════════════════════════╝");
+        opcaoPessoa = sc.nextInt();
+        sc.nextLine();
 
-        System.out.println("Usuário cadastrado: " + pessoa.getNome());
-        listaPessoa.add(pessoa);
+        switch (opcaoPessoa) {
+            case 1:
+                System.out.println("Digite sua linguagem de programação principal: ");
+                String linguagem = sc.nextLine();
+                Programador programador = new Programador(nome, idade, telefone, linguagem);
+                System.out.println("Usuário cadastrado: " + programador.getNome());
+                listaPessoa.add(programador);
+                break;
+
+            case 2:
+                System.out.println("Digite sua distribuição Linux favorita: ");
+                String distroLinux = sc.nextLine();
+
+//                Cibersecurity cibersecurity = new Cibersecurity(nome, idade, telefone, distroLinux);
+                Cibersecurity cibersecurity = new Cibersecurity(nome, idade, telefone, distroLinux);
+                System.out.println("Usuário cadastrado: " + cibersecurity.getNome());
+                listaPessoa.add(cibersecurity);
+                break;
+        }
     }
 
     public void lerPessoas() {
-        for (Object pessoa : listaPessoa) {
-            System.out.println(pessoa);
+        int i = 0;
+
+        System.out.println("Programadores");
+        for (Pessoa pessoa : listaPessoa) {
+            if (pessoa.getClass().getSimpleName().equals("Programador")) {
+                System.out.println(( i + 1 ) + " - " + pessoa);
+            i++;
+            }
+        }
+
+        System.out.println("Cibersecurities");
+        for (Pessoa pessoa : listaPessoa) {
+            if (pessoa.getClass().getSimpleName().equals("Cibersecurity")) {
+                System.out.println(( i + 1 ) + " - " + pessoa);
+            i++;
+            }
         }
     }
 
     public void editarPessoa() {
         System.out.println("Qual deseja editar? ");
-        contador = 1;
-        for (Object pessoa : listaPessoa) {
-            System.out.println(contador + " - " + pessoa);
-            contador++;
-        }
+        lerPessoas();
         int opcaoEditar = sc.nextInt();
         sc.nextLine(); // limpeza
 
-        System.out.println("Sua escolha: " + listaPessoa.get(opcaoEditar - 1) + "\nO que deseja editar? 1 - Nome | 2 - Idade | 3 - Telefone");
+        System.out.print("Sua escolha: " + listaPessoa.get(opcaoEditar - 1) + "\nO que deseja editar? 1 - Nome | 2 - Idade | 3 - Telefone | 4 - Atributo Específico");
         int opcaoEditarAtributo = sc.nextInt();
         sc.nextLine(); // limpeza
 
@@ -65,6 +104,20 @@ public class CadastroPessoa {
                 String novoTelefone = sc.nextLine();
                 listaPessoa.get(opcaoEditar - 1).setTelefone(novoTelefone);
                 System.out.println("Telefone Editado com Sucesso!");
+                break;
+
+            case 4:
+                if (listaPessoa.get(opcaoEditar - 1).getClass().getSimpleName().equals("Programador")) {
+                    System.out.println("Digite a linguagem para substituir: ");
+                    String novaLinguagem = sc.nextLine();
+                    listaProgramador.get(opcaoEditar - 1).setLinguagem(novaLinguagem);
+                } else {
+                    System.out.println("Digite a distribuição Linux para substituir: ");
+                    String novaDistro = sc.nextLine();
+                    listaCiber.get(opcaoEditar - 1).setDistroLinux(novaDistro);
+                }
+
+                System.out.println("Linguagem Editada com Sucesso!");
                 break;
         }
 
