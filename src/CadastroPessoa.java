@@ -45,7 +45,6 @@ public class CadastroPessoa {
                 System.out.println("Digite sua distribuição Linux favorita: ");
                 String distroLinux = sc.nextLine();
 
-//                Cibersecurity cibersecurity = new Cibersecurity(nome, idade, telefone, distroLinux);
                 Cibersecurity cibersecurity = new Cibersecurity(nome, idade, telefone, distroLinux);
                 System.out.println("Usuário cadastrado: " + cibersecurity.getNome());
                 listaPessoa.add(cibersecurity);
@@ -110,7 +109,7 @@ public class CadastroPessoa {
                 if (listaPessoa.get(opcaoEditar - 1).getClass().getSimpleName().equals("Programador")) {
                     System.out.println("Digite a linguagem para substituir: ");
                     String novaLinguagem = sc.nextLine();
-                    listaProgramador.get(opcaoEditar - 1).setLinguagem(novaLinguagem);
+                    listaProgramador.get(opcaoEditar).setLinguagem(novaLinguagem);
                 } else {
                     System.out.println("Digite a distribuição Linux para substituir: ");
                     String novaDistro = sc.nextLine();
@@ -134,5 +133,6 @@ public class CadastroPessoa {
         sc.nextLine(); // limpar scanner
         listaPessoa.remove(opcaoDeletar - 1);
         System.out.println("Usuário Deletado com Sucesso! ");
+
     }
 }
