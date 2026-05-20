@@ -72,6 +72,7 @@ public class CadastroPessoa {
         }
     }
 
+    // parte para refatorar
     public void editarPessoa() {
         System.out.println("Qual deseja editar? ");
         lerPessoas();
