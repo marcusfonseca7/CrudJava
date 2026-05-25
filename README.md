@@ -1,62 +1,126 @@
-# 🚧 CRUD em Java (Em Desenvolvimento)
+# CRUD em Java com Programação Orientada a Objetos
 
-Este projeto consiste no desenvolvimento de um sistema CRUD (Create, Read, Update, Delete) utilizando **Java** com foco em **Programação Orientada a Objetos (POO)**.
+Projeto desenvolvido em **Java** com foco na prática de **Programação Orientada a Objetos (POO)** através da implementação de um sistema CRUD (*Create, Read, Update, Delete*).
 
-Atualmente, o projeto está em fase de desenvolvimento e será evoluído gradualmente conforme novos conceitos e melhorias forem sendo implementados.
+Durante o desenvolvimento foram aplicados os **4 pilares da POO**: Encapsulamento, Herança, Abstração e Polimorfismo, utilizando classes abstratas, herança entre classes e sobrescrita de métodos.
 
 ---
 
-## 🎯 Objetivo
+## Objetivo do Projeto
 
-O principal objetivo deste projeto é consolidar conhecimentos em:
+Desenvolver conhecimentos em Java e reforçar a aplicação prática da Programação Orientada a Objetos por meio da construção de um sistema CRUD.
 
+---
+
+## Funcionalidades
+
+✔ Cadastro de registros  
+✔ Listagem de informações  
+✔ Atualização de dados  
+✔ Remoção de registros  
+✔ Estrutura baseada em POO  
+✔ Uso de herança e classes abstratas
+
+---
+
+## Conceitos de POO Aplicados
+
+### Encapsulamento
+Os atributos das classes foram definidos como privados, sendo acessados através de métodos `getters` e `setters`, garantindo maior controle dos dados.
+
+### Abstração
+A classe:
+
+```java
+Pessoa
+```
+
+foi criada como **abstrata**, servindo como modelo principal para outras classes do sistema.
+
+### Herança
+
+As classes:
+
+```java
+Programador
+Cibersecurity
+```
+
+herdam atributos e comportamentos da classe:
+
+```java
+Pessoa
+```
+
+evitando repetição de código e promovendo reutilização.
+
+### Polimorfismo
+
+As classes filhas sobrescrevem o método:
+
+```java
+@Override
+public String toString()
+```
+
+alterando a forma como as informações são exibidas, mesmo herdando comportamentos da classe mãe.
+
+---
+
+## Estrutura do Projeto
+
+```bash
+src/
+│
+├── Pessoa.java            # Classe abstrata principal
+├── Programador.java       # Herda de Pessoa
+├── Cibersecurity.java     # Herda de Pessoa
+├── Menu.java              # Execução do sistema
+├── CadastroPessoa.java    # Lógicas do Sistema
+└── ...
+```
+
+---
+
+## Tecnologias Utilizadas
+
+- Java
 - Programação Orientada a Objetos
-- Estruturação de projetos em Java
-- Boas práticas de desenvolvimento
-- Organização de código e reutilização
-
----
-
-## 🧠 Conceitos aplicados
-
-O projeto busca aplicar os **4 pilares da POO**:
-
-- **Encapsulamento** → Proteção dos dados através de getters e setters  
-- **Herança** → Reutilização de código entre classes  
-- **Polimorfismo** → Flexibilidade na execução de métodos  
-- **Abstração** → Modelagem de entidades do mundo real  
-
-Além disso, também utiliza:
-
-- Classes e objetos  
-- Métodos  
-- Estruturas de decisão e repetição  
-
----
-
-## 📌 Próximos passos
-
-- Implementar estrutura base do CRUD
-- Aplicar validações de entrada
-- Melhorar organização do código  
-- Possível integração futura com banco de dados  
-
----
-
-## 🛠️ Tecnologias utilizadas
-
-- Java  
-- Programação Orientada a Objetos (POO)  
-
----
-
-## 📚 Aprendizados
-
-Este projeto faz parte do meu processo de aprendizado em desenvolvimento backend com Java, onde estou praticando conceitos fundamentais que serão essenciais para projetos mais avançados no futuro.
+- CRUD
+- Scanner
+- IntelliJ
 
 ---
 
 
-## 📄 Licença
 
-Este projeto é apenas para fins de estudo.
+## Melhorias Futuras
+
+- [ ] Adicionar validações de entrada
+- [ ] Refatorar código
+- [ ] Melhorar tratamento de erros
+- [ ] Implementar persistência de dados
+- [ ] Adicionar banco de dados
+- [ ] Criar interface gráfica
+- [ ] Melhorar organização das classes
+
+---
+
+## Aprendizados
+
+Durante o desenvolvimento deste projeto foi possível praticar:
+
+- Estruturação de classes
+- Herança
+- Classes abstratas
+- Sobrescrita de métodos
+- Encapsulamento
+- Organização de código em Java
+- Lógica de CRUD
+- Manipulação de entrada de dados
+
+---
+
+## Autor
+
+Desenvolvido por **Marcus Vinicius**  
