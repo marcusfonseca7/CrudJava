@@ -6,7 +6,6 @@ public class CadastroPessoa {
     Scanner sc = new Scanner(System.in);
     ArrayList<Programador> listaProgramador = new ArrayList<>();
     ArrayList<Cibersecurity> listaCiber = new ArrayList<>();
-    int contador;
 
 
     public void adicionarPessoa() {
@@ -169,16 +168,37 @@ public class CadastroPessoa {
     }
 
     public void deletarPessoa() {
-        System.out.println("Qual deseja deletar? ");
-        contador = 1;
-        for (Object pessoa : listaProgramador) {
-            System.out.println(contador + " - " + pessoa);
-            contador++;
+
+        System.out.println("\nDe qual setor deseja deletar um usuário? | 1- Programador | 2- Cibersecurity |");
+        int opcaoAreaDelete = sc.nextInt();
+
+        if (opcaoAreaDelete == 1) {
+            int contador;
+            System.out.println("Qual deseja deletar? ");
+            contador = 1;
+            for (Object pessoa : listaProgramador) {
+                System.out.println(contador + " - " + pessoa);
+                contador++;
+            }
+            int opcaoDeletar = sc.nextInt();
+            sc.nextLine(); // limpar scanner
+            listaProgramador.remove(opcaoDeletar - 1);
+            System.out.println("Usuário Deletado com Sucesso! ");
+        } else {
+            int contador;
+            System.out.println("Qual deseja deletar? ");
+            contador = 1;
+            for (Object pessoa : listaCiber) {
+                System.out.println(contador + " - " + pessoa);
+                contador++;
+            }
+            int opcaoDeletar = sc.nextInt();
+            sc.nextLine(); // limpar scanner
+            listaCiber.remove(opcaoDeletar - 1);
+            System.out.println("Usuário Deletado com Sucesso! ");
         }
-        int opcaoDeletar = sc.nextInt();
-        sc.nextLine(); // limpar scanner
-        listaProgramador.remove(opcaoDeletar - 1);
-        System.out.println("Usuário Deletado com Sucesso! ");
+
+
 
     }
 }
