@@ -121,49 +121,49 @@ public class CadastroPessoa {
             }
 
         } else {
-                int i = 0;
-                for (Pessoa pessoa : listaCiber) {
-                        System.out.println((i + 1) + " - " + pessoa);
-                        i++;
-                }
+            int i = 0;
+            for (Pessoa pessoa : listaCiber) {
+                System.out.println((i + 1) + " - " + pessoa);
+                i++;
+            }
 
-                System.out.println("Qual deles deseja editar? ");
-                int opcaoEditarCib = sc.nextInt();
-                sc.nextLine();
-                System.out.print("Sua escolha: " + listaCiber.get(opcaoEditarCib - 1) + "\nO que deseja editar? 1 - Nome | 2 - Idade | 3 - Telefone | 4 - Linguagem de Programação ");
-                int opcaoEditarAtributoCib = sc.nextInt();
-                sc.nextLine(); // limpeza
+            System.out.println("Qual deles deseja editar? ");
+            int opcaoEditarCib = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Sua escolha: " + listaCiber.get(opcaoEditarCib - 1) + "\nO que deseja editar? 1 - Nome | 2 - Idade | 3 - Telefone | 4 - Linguagem de Programação ");
+            int opcaoEditarAtributoCib = sc.nextInt();
+            sc.nextLine(); // limpeza
 
-                switch (opcaoEditarAtributoCib) {
-                    case 1:
-                        System.out.println("Digite o nome para substituir: ");
-                        String novoNome = sc.nextLine();
-                        listaCiber.get(opcaoEditarCib - 1).setNome(novoNome);
-                        System.out.println("Nome Editado com Sucesso!");
-                        break;
+            switch (opcaoEditarAtributoCib) {
+                case 1:
+                    System.out.println("Digite o nome para substituir: ");
+                    String novoNome = sc.nextLine();
+                    listaCiber.get(opcaoEditarCib - 1).setNome(novoNome);
+                    System.out.println("Nome Editado com Sucesso!");
+                    break;
 
-                    case 2:
-                        System.out.println("Digite a idade para substituir: ");
-                        int novaIdade = sc.nextInt();
-                        sc.nextLine(); // limpeza
-                        listaCiber.get(opcaoEditarCib - 1).setIdade(novaIdade);
-                        System.out.println("Idade Editado com Sucesso!");
-                        break;
+                case 2:
+                    System.out.println("Digite a idade para substituir: ");
+                    int novaIdade = sc.nextInt();
+                    sc.nextLine(); // limpeza
+                    listaCiber.get(opcaoEditarCib - 1).setIdade(novaIdade);
+                    System.out.println("Idade Editado com Sucesso!");
+                    break;
 
-                    case 3:
-                        System.out.println("Digite o telefone para substituir: ");
-                        String novoTelefone = sc.nextLine();
-                        listaCiber.get(opcaoEditarCib - 1).setTelefone(novoTelefone);
-                        System.out.println("Telefone Editado com Sucesso!");
-                        break;
+                case 3:
+                    System.out.println("Digite o telefone para substituir: ");
+                    String novoTelefone = sc.nextLine();
+                    listaCiber.get(opcaoEditarCib - 1).setTelefone(novoTelefone);
+                    System.out.println("Telefone Editado com Sucesso!");
+                    break;
 
-                    case 4:
-                        System.out.println("Digite a linguagem para substituir: ");
-                        String novaDistro = sc.nextLine();
-                        listaCiber.get(opcaoEditarCib - 1).setDistroLinux(novaDistro);
-                        System.out.println("Linguagem Editada com Sucesso!");
-                        break;
-                }
+                case 4:
+                    System.out.println("Digite a linguagem para substituir: ");
+                    String novaDistro = sc.nextLine();
+                    listaCiber.get(opcaoEditarCib - 1).setDistroLinux(novaDistro);
+                    System.out.println("Linguagem Editada com Sucesso!");
+                    break;
+            }
         }
     }
 
@@ -171,34 +171,26 @@ public class CadastroPessoa {
 
         System.out.println("\nDe qual setor deseja deletar um usuário? | 1- Programador | 2- Cibersecurity |");
         int opcaoAreaDelete = sc.nextInt();
+        sc.nextLine(); //limpeza
+
+        ArrayList listaSelecionada = new ArrayList<>();
+
 
         if (opcaoAreaDelete == 1) {
-            int contador;
-            System.out.println("Qual deseja deletar? ");
-            contador = 1;
-            for (Object pessoa : listaProgramador) {
-                System.out.println(contador + " - " + pessoa);
-                contador++;
-            }
-            int opcaoDeletar = sc.nextInt();
-            sc.nextLine(); // limpar scanner
-            listaProgramador.remove(opcaoDeletar - 1);
-            System.out.println("Usuário Deletado com Sucesso! ");
-        } else {
-            int contador;
-            System.out.println("Qual deseja deletar? ");
-            contador = 1;
-            for (Object pessoa : listaCiber) {
-                System.out.println(contador + " - " + pessoa);
-                contador++;
-            }
-            int opcaoDeletar = sc.nextInt();
-            sc.nextLine(); // limpar scanner
-            listaCiber.remove(opcaoDeletar - 1);
-            System.out.println("Usuário Deletado com Sucesso! ");
+            listaSelecionada = listaProgramador;
+        } else if (opcaoAreaDelete == 2) {
+            listaSelecionada = listaCiber;
         }
 
-
-
+            System.out.println("Qual deseja deletar? ");
+            int contador = 1;
+            for (Object pessoa : listaSelecionada) {
+                System.out.println(contador + " - " + pessoa);
+                contador++;
+            }
+            int opcaoDeletar = sc.nextInt();
+            sc.nextLine(); // limpar scanner
+            listaSelecionada.remove(opcaoDeletar - 1);
+            System.out.println("Usuário Deletado com Sucesso! ");
     }
 }
