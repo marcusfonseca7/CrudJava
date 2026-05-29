@@ -16,6 +16,6 @@ public class Cibersecurity extends Pessoa {
 
     @Override
         public String toString() {
-            return super.toString() + " Distribuição do Linux: " + distroLinux;
+            return super.toString() + " | Distribuição do Linux: " + distroLinux;
         }
 }

@@ -16,6 +16,6 @@ public class Programador extends Pessoa{
 
     @Override
     public String toString() {
-        return super.toString() + " Linguagem de Programação: " + linguagem;
+        return super.toString() + " | Linguagem de Programação: " + linguagem;
     }
 }
