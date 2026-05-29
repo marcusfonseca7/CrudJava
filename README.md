@@ -96,8 +96,8 @@ src/
 
 ## Melhorias Futuras
 
-- [ ] Adicionar validações de entrada
-- [ ] Refatorar código
+- [ ] Adicionar validações de entrada <br>
+- [x] Refatorar código
 - [ ] Melhorar tratamento de erros
 - [ ] Implementar persistência de dados
 - [ ] Adicionar banco de dados
